@@ -12,9 +12,12 @@ class Email
      * Email constructor.
      *
      * @param string $email
+     * @param string|null $atributo
+     * @param string|null $objeto
+     * 
      * @throws Exception
      */
-    public function __construct(string $email)
+    public function __construct(string $email, ?string $atributo = null, ?string $objeto = null)
     {
         $this->validarEmail($email);
         $this->email = $email;

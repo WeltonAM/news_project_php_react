@@ -12,9 +12,12 @@ class Data
      * Data constructor.
      *
      * @param string $data
+     * @param string|null $atributo
+     * @param string|null $objeto
+     * 
      * @throws Exception
      */
-    public function __construct(string $data)
+    public function __construct(string $data, ?string $atributo = null, ?string $objeto = null)
     {
         $this->validarData($data);
         $this->data = $data;

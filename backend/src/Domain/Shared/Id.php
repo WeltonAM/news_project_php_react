@@ -17,9 +17,12 @@ class Id
      * Construtor de Id.
      *
      * @param string|null $uuid
+     * @param string|null $atributo
+     * @param string|null $objeto
+     * 
      * @throws Exception
      */
-    public function __construct(?string $uuid = null)
+    public function __construct(?string $uuid = null, ?string $atributo = null, ?string $objeto = null)
     {
         if ($uuid === null) {
             $this->uuid = Uuid::uuid4();
