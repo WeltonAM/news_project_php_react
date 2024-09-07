@@ -4,7 +4,7 @@ namespace Core\Tests\Domain\Shared;
 
 use PHPUnit\Framework\TestCase;
 use Core\Domain\Shared\Email;
-use InvalidArgumentException;
+use Exception;
 
 class EmailTest extends TestCase
 {
@@ -17,9 +17,9 @@ class EmailTest extends TestCase
 
     public function testEmailInvalido()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage(json_encode([
-            ['codigo' => 'EMAIL_INVALIDO', 'valor' => 'invalid-email', 'atributo' => null, 'objeto' => null, 'extras' => []]
+            ['codigo' => 'EMAIL_INVALIDO', 'valor' => 'invalid-email', 'atributo' => 'email', 'objeto' => 'EMAIL', 'extras' => []]
         ]));
 
         $email = 'invalid-email';

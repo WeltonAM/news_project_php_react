@@ -22,7 +22,7 @@ class IdTest extends TestCase
 
     public function testIdInvalidoLancaExcecao()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\Exception::class);
         new Id('id-invalido');
     }
 

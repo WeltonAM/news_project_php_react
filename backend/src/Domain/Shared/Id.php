@@ -4,7 +4,7 @@ namespace Core\Domain\Shared;
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
-use InvalidArgumentException;
+use Exception;
 
 class Id
 {
@@ -17,7 +17,7 @@ class Id
      * Construtor de Id.
      *
      * @param string|null $uuid
-     * @throws InvalidArgumentException
+     * @throws Exception
      */
     public function __construct(?string $uuid = null)
     {
@@ -25,7 +25,7 @@ class Id
             $this->uuid = Uuid::uuid4();
         } else {
             if (!Uuid::isValid($uuid)) {
-                throw new InvalidArgumentException("ID inválido, deve ser um UUID.");
+                throw new Exception("ID inválido, deve ser um UUID.");
             }
             $this->uuid = Uuid::fromString($uuid);
         }

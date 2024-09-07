@@ -2,7 +2,7 @@
 
 namespace Core\Domain\Shared;
 
-use InvalidArgumentException;
+use Exception;
 use Ramsey\Uuid\Uuid;
 use Core\Domain\Error\ErroValidacao;
 
@@ -27,7 +27,7 @@ class Validador
 
     public static function lancarErro(string $erro): void
     {
-        throw new InvalidArgumentException(json_encode(['codigo' => $erro]));
+        throw new Exception(json_encode(['codigo' => $erro]));
     }
 
     public static function combinar(Validador ...$validadores): ?array
@@ -253,7 +253,7 @@ class Validador
     public function lancarSeErro(): void
     {
         if (!$this->getValido()) {
-            throw new InvalidArgumentException(json_encode($this->erros));
+            throw new Exception(json_encode($this->erros));
         }
     }
 

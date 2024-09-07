@@ -2,7 +2,7 @@
 
 namespace Core\Domain\Shared;
 
-use InvalidArgumentException;
+use Exception;
 
 class Data
 {
@@ -12,7 +12,7 @@ class Data
      * Data constructor.
      *
      * @param string $data
-     * @throws InvalidArgumentException
+     * @throws Exception
      */
     public function __construct(string $data)
     {
@@ -24,16 +24,14 @@ class Data
      * Valida se a data está no formato correto.
      *
      * @param string $data
-     * @throws InvalidArgumentException
+     * @throws Exception
      */
     private function validarData(string $data): void
     {
-        $validador = Validador::valor($data)
-            ->dataValida();
-
-        if ($validador->getInvalido()) {
-            throw new InvalidArgumentException(json_encode($validador->getErros()));
-        }
+        $validador = Validador::valor($data, 'data', 'DATA')
+            ->naoNulo('DATA_NULA')
+            ->dataValida('DATA_INVALIDA')
+            ->lancarSeErro();
     }
 
     /**

@@ -4,7 +4,7 @@ namespace Core\Tests\Domain\Shared;
 
 use PHPUnit\Framework\TestCase;
 use Core\Domain\Shared\Data;
-use InvalidArgumentException;
+use Exception;
 
 class DataTest extends TestCase
 {
@@ -17,9 +17,9 @@ class DataTest extends TestCase
 
     public function testDataInvalida()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage(json_encode([
-            ['codigo' => 'DATA_INVALIDA', 'valor' => 'invalid-data', 'atributo' => null, 'objeto' => null, 'extras' => []]
+            ['codigo' => 'DATA_INVALIDA', 'valor' => 'invalid-data', 'atributo' => 'data', 'objeto' => 'DATA', 'extras' => []]  
         ]));
 
         $data = 'invalid-data';

@@ -73,7 +73,7 @@ class ValidadorTest extends TestCase
 
     public function testLancarErro()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage(json_encode(['codigo' => 'ERRO_EXEMPLO']));
 
         Validador::lancarErro('ERRO_EXEMPLO');
