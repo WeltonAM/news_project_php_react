@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain;
+namespace Core\Domain\User\Model;
 
 use Core\Domain\Shared\Entidade;
 use Core\Domain\Shared\NomePessoa;

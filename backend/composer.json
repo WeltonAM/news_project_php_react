@@ -9,7 +9,8 @@
         "guzzlehttp/guzzle": "^7.9",
         "ramsey/uuid": "^4.7",
         "firebase/php-jwt": "^6.10",
-        "ext-password": "*"
+        "ext-password": "*",
+        "fakerphp/faker": "^1.23"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.3",
