@@ -4,14 +4,15 @@
 │ ├──── Error/
 │ │ ├────── ErroValidacao.php
 │ │ ├──── Shared/
-│ │ ├────── Id.php
-│ │ ├────── Validador.php
 │ │ ├────── Data.php
-│ │ ├────── NomePessoa.php
-│ │ ├────── TextoSimples.php
 │ │ ├────── Email.php
+│ │ ├────── Entidade.php
+│ │ ├────── Id.php
+│ │ ├────── NomePessoa.php
 │ │ ├────── SenhaForte.php
 │ │ ├────── SenhaHash.php
+│ │ ├────── TextoSimples.php
+│ │ ├────── Validador.php
 │ │ ├──── User/
 │ │ ├────── Model/
 │ │ ├──────── Usuairo.php
@@ -48,5 +49,13 @@
 ├── tests/
 ├──── Domain/
 │ ├──── Shared/
-│ │ ├────── Id.php
+│ │ ├────── DataTest.php
+│ │ ├────── EmailTest.php
+│ │ ├────── EntidadeTest.php
+│ │ ├────── IdTest.php
+│ │ ├────── NomePessoaTest.php
+│ │ ├────── SenhaForteTest.php
+│ │ ├────── SenhaHashTest.php
+│ │ ├────── TextoSimplesTest.php
+│ │ ├────── ValidadorTest.php
 ```
