@@ -35,7 +35,7 @@ class LoginUsuarioTest extends TestCase
         $this->repositorio->salvar($usuario);
 
         $casoDeUso = new LoginUsuario($this->repositorio, $this->provedorCripto);
-        $resultado = $casoDeUso->executar(['email' => $email, 'senha' => $senha]);
+        $resultado = $casoDeUso->executar(['email' => $usuario->getEmail()->getValor(), 'senha' => $senha]);
 
         $this->assertInstanceOf(Usuario::class, $resultado);
         $this->assertEquals($email, $resultado->getEmail()->getValor());
