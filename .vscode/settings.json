@@ -1,0 +1,13 @@
+{
+    "material-icon-theme.folders.associations": {
+        "domain": "core",
+        "external": "tools",
+        "model": "json",
+        "provider": "config",
+        "service": "generator",
+        "user": "admin",
+        "news": "resource",
+        "comment": "message",
+        "storage": "debug",
+    }
+}
