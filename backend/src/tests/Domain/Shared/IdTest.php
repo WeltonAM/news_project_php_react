@@ -32,7 +32,7 @@ class IdTest extends TestCase
         $id2 = new Id((string) $id1);
         $id3 = new Id();
 
-        $this->assertTrue($id1->equals($id2));
-        $this->assertFalse($id1->equals($id3));
+        $this->assertTrue($id1->igual($id2));
+        $this->assertFalse($id1->igual($id3));
     }
 }
