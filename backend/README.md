@@ -1,10 +1,11 @@
-.
+```
 ├── src/
 │ ├── Domain/
+│ ├──── Error/
+│ │ ├────── ErroValidacao.php
 │ │ ├──── Shared/
 │ │ ├────── Id.php
-│ │ ├────── ErroValidacao.php
-│ │ ├────── Validacao.php
+│ │ ├────── Validador.php
 │ │ ├────── Data.php
 │ │ ├────── NomePessoa.php
 │ │ ├────── TextoSimples.php
@@ -48,3 +49,4 @@
 ├──── Domain/
 │ ├──── Shared/
 │ │ ├────── Id.php
+```
