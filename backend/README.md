@@ -2,8 +2,8 @@
 ├── src/
 │ ├── Domain/
 │ ├──── Error/
-│ │ ├────── ErroValidacao.php
-│ │ ├──── Shared/
+│ │ └────── ErroValidacao.php
+│ ├──── Shared/
 │ │ ├────── Data.php
 │ │ ├────── Email.php
 │ │ ├────── Entidade.php
@@ -12,8 +12,8 @@
 │ │ ├────── SenhaForte.php
 │ │ ├────── SenhaHash.php
 │ │ ├────── TextoSimples.php
-│ │ ├────── Validador.php
-│ │ ├──── User/
+│ │ └────── Validador.php
+│ ├──── User/
 │ │ ├────── Model/
 │ │ ├──────── Usuairo.php
 │ │ ├────── Provider/
@@ -22,8 +22,8 @@
 │ │ ├──────── RepositorioUsuario.php
 │ │ ├────── Service/
 │ │ ├──────── LoginUsuario.php
-│ │ ├──────── CadastrarUsuario.php
-│ │ ├──── News/
+│ │ └──────── CadastrarUsuario.php
+│ ├──── News/
 │ │ ├────── Model/
 │ │ ├──────── Noticia.php
 │ │ ├────── Provider/
@@ -33,8 +33,8 @@
 │ │ ├──────── EditarNoticia.php
 │ │ ├──────── DeletarNoticia.php
 │ │ ├──────── BuscarNoticia.php
-│ │ ├──────── BuscarNoticiaUsuario.php
-│ │ ├──── Comment/
+│ │ └──────── BuscarNoticiaUsuario.php
+│ ├─── Comment/
 │ │ ├────── Model/
 │ │ ├──────── Comentario.php
 │ │ ├────── Provider/
@@ -47,15 +47,22 @@
 ├── routes/
 ├── storage/
 ├── tests/
-├──── Domain/
-│ ├──── Shared/
-│ │ ├────── DataTest.php
-│ │ ├────── EmailTest.php
-│ │ ├────── EntidadeTest.php
-│ │ ├────── IdTest.php
-│ │ ├────── NomePessoaTest.php
-│ │ ├────── SenhaForteTest.php
-│ │ ├────── SenhaHashTest.php
-│ │ ├────── TextoSimplesTest.php
-│ │ ├────── ValidadorTest.php
+│ ├─── Data/
+│ │ └──── UsuarioBuilder.php
+│ ├─── Domain/
+│ │  ├──── Shared/
+│ │  │ ├────── DataTest.php
+│ │  │ ├────── EmailTest.php
+│ │  │ ├────── EntidadeTest.php
+│ │  │ ├────── IdTest.php
+│ │  │ ├────── NomePessoaTest.php
+│ │  │ ├────── SenhaForteTest.php
+│ │  │ ├────── SenhaHashTest.php
+│ │  │ ├────── TextoSimplesTest.php
+│ │  │ └────── ValidadorTest.php
+│ │  └──── User/
+│ │   └────── UsuarioTest.php/
+│ └──── Utils/
+│   └──── Teste.php
+
 ```
