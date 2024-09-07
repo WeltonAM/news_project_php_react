@@ -1,9 +1,9 @@
 <?php
 
-namespace Core\Tests\Mocks;
+namespace Core\Tests\Mock;
 
 use Core\Domain\User\Model\Usuario;
-use Core\Domain\Shared\RepositorioUsuario;
+use Core\Domain\User\Provider\RepositorioUsuario;
 
 class RepositorioUsuarioMock implements RepositorioUsuario
 {

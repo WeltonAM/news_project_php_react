@@ -41,7 +41,7 @@ class Email
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getValor(): string
     {
         return $this->email;
     }

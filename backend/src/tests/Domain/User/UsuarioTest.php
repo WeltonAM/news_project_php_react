@@ -23,7 +23,7 @@ class UsuarioTest extends TestCase
             ->agora();
 
         $this->assertEquals($nomeCompleto, $usuario->getNome()->getCompleto());
-        $this->assertEquals($email, $usuario->getEmail()->getEmail());
+        $this->assertEquals($email, $usuario->getEmail()->getValor());
         $this->assertInstanceOf(SenhaHash::class, $usuario->getSenha());
     }
 

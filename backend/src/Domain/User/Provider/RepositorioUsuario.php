@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Domain\Shared;
+namespace Core\Domain\User\Provider;
 
 use Core\Domain\User\Model\Usuario;
 

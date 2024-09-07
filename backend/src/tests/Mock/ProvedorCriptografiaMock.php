@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Tests\Mocks;
+namespace Core\Tests\Mock;
 
-use Core\Domain\Shared\ProvedorCriptografia;
+use Core\Domain\User\Provider\ProvedorCriptografia;
 
 class ProvedorCriptografiaMock implements ProvedorCriptografia
 {
