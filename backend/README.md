@@ -61,7 +61,9 @@
 │ │  │ ├────── TextoSimplesTest.php
 │ │  │ └────── ValidadorTest.php
 │ │  └──── User/
-│ │   └────── UsuarioTest.php/
+│ │   ├────── UsuarioTest.php/
+│ │   ├────── LoginUsuarioTest.php
+│ │   └────── CadastrarUsuarioTest.php
 │ └──── Utils/
 │   └──── Teste.php
 
