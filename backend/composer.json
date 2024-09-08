@@ -1,4 +1,7 @@
 {
+    "config": {
+        "process-timeout": 0
+    },
     "require": {
         "psr/http-message": "^2.0",
         "psr/http-server-middleware": "^1.0",
@@ -27,6 +30,12 @@
         }
     },
     "scripts": {
-        "test": "phpunit --configuration phpunit.xml"
+        "test": "phpunit --configuration phpunit.xml",
+        "serve": [
+            "@php -r \"include 'env.php';\"",
+            "@php -S localhost:8000 -t src/public"
+        ],
+        "migrate": "php src/Infra/Database/MYSQL/Migrations/create_user_table.php",
+        "seed": "php src/Infra/Database/MYSQL/Seeders/user_seeder.php"
     }
 }

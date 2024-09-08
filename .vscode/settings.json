@@ -1,13 +1,17 @@
 {
     "material-icon-theme.folders.associations": {
         "domain": "core",
-        "external": "tools",
+        "External": "tools",
+        "Infra": "webpack",
         "model": "json",
         "provider": "config",
         "service": "generator",
         "user": "admin",
         "news": "resource",
         "comment": "message",
-        "storage": "debug",
+        "storage": "log",
+        "MySQL": "database",
+        "Redis": "scala",
+        "Migrations": "ci",
     }
 }
