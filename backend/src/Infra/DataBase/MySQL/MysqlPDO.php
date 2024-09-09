@@ -1,14 +1,14 @@
 <?php
 
-namespace Core\Infra\Database;
+namespace Core\Infra\Database\MySQL;
 
-class Database
+class MysqlPDO
 {
     private $pdo;
 
     public function __construct()
     {
-        $config = require __DIR__ . '/../config.php';
+        $config = require __DIR__ . '/../../../Infra/config.php';
 
         $dbConfig = $config['connections']['mysql'];
         $dsn = "mysql:host={$dbConfig['host']};port={$dbConfig['port']};dbname={$dbConfig['database']}";

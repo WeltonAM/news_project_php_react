@@ -6,10 +6,10 @@ Dotenv\Dotenv::createImmutable(__DIR__ . '/../../..')->load();
 
 require_once __DIR__ . '/../../Infra/config.php';
 
-use Core\Infra\Database\Database;
+use Core\Infra\Database\MySQL\MysqlPDO;
 
 try {
-    $db = new Database();
+    $db = new MysqlPDO();
     $pdo = $db->getConnection();
     echo "Conexão ao banco de dados bem-sucedida!";
 } catch (Exception $e) {
