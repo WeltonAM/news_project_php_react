@@ -108,10 +108,15 @@
 │ │ │  │ ├────── SenhaHashTest.php
 │ │ │  │ ├────── TextoSimplesTest.php
 │ │ │  │ └────── ValidadorTest.php
-│ │ │  └──── User/
-│ │ │   ├────── UsuarioTest.php/
-│ │ │   ├────── LoginUsuarioTest.php
-│ │ │   └────── CadastrarUsuarioTest.php
+│ │ │  │
+│ │ │  ├──── User/
+│ │ │  │ ├────── UsuarioTest.php/
+│ │ │  │ ├────── LoginUsuarioTest.php
+│ │ │  │ └────── CadastrarUsuarioTest.php
+│ │ │  │
+│ │ │  └──── Infra/
+│ │ │    └────── test_db_connection.php
+│ │ │
 │ │ └──── Utils/
 │ │   └──── Teste.php
 │ │
