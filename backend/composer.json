@@ -35,6 +35,6 @@
             "@php bootstrap.php"
         ],
         "migrate": "php src/Infra/Database/MYSQL/Migrations/create_user_table.php",
-        "seed": "php src/Infra/Database/MYSQL/Seeders/user_seeder.php"
+        "seed": "php src/Infra/Database/MYSQL/Seeders/user_seed.php"
     }
 }

@@ -125,6 +125,8 @@
 │ └──── public/
 │   └──── index.php
 │
+├──── init.php
+├──── bootstrap.php
 ├──── composer.json
 ├──── composer.lock
 ├──── README.md
