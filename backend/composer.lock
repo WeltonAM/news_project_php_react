@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c24de6d6ab26da2d263387a56a59898c",
+    "content-hash": "98e463df7af417351fcaca8c0443990d",
     "packages": [
         {
             "name": "brick/math",
@@ -2100,80 +2100,6 @@
             "time": "2024-04-18T09:32:20+00:00"
         },
         {
-            "name": "symfony/dotenv",
-            "version": "v7.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dotenv.git",
-                "reference": "a26be30fd61678dab694a18a85084cea7673bbf3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/a26be30fd61678dab694a18a85084cea7673bbf3",
-                "reference": "a26be30fd61678dab694a18a85084cea7673bbf3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2"
-            },
-            "conflict": {
-                "symfony/console": "<6.4",
-                "symfony/process": "<6.4"
-            },
-            "require-dev": {
-                "symfony/console": "^6.4|^7.0",
-                "symfony/process": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Dotenv\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Registers environment variables from a .env file",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "dotenv",
-                "env",
-                "environment"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/dotenv/tree/v7.1.3"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-07-09T19:36:07+00:00"
-        },
-        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.30.0",
             "source": {
@@ -3381,16 +3307,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.3.3",
+            "version": "11.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8ed08766d9a2ed979a2f5fdbb95a0671523419c1"
+                "reference": "d2ef57db1410b102b250e0cdce6675a60c2a993d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8ed08766d9a2ed979a2f5fdbb95a0671523419c1",
-                "reference": "8ed08766d9a2ed979a2f5fdbb95a0671523419c1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d2ef57db1410b102b250e0cdce6675a60c2a993d",
+                "reference": "d2ef57db1410b102b250e0cdce6675a60c2a993d",
                 "shasum": ""
             },
             "require": {
@@ -3461,7 +3387,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.4"
             },
             "funding": [
                 {
@@ -3477,7 +3403,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-04T13:34:52+00:00"
+            "time": "2024-09-09T06:08:34+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -4500,7 +4426,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vimeo/psalm/issues",
-                "source": "https://github.com/vimeo/psalm/tree/master"
+                "source": "https://github.com/vimeo/psalm/tree/0.3.14"
             },
             "time": "2017-01-19T06:32:35+00:00"
         }
@@ -4514,5 +4440,5 @@
         "ext-password": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
