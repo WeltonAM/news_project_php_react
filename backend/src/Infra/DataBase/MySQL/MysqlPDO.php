@@ -9,8 +9,9 @@ class MysqlPDO
     public function __construct()
     {
         $config = require __DIR__ . '/../../../Infra/config.php';
-
+        
         $dbConfig = $config['connections']['mysql'];
+        
         $dsn = "mysql:host={$dbConfig['host']};port={$dbConfig['port']};dbname={$dbConfig['database']}";
 
         try {

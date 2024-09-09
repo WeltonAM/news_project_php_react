@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Infra\Database\Migrations;
+require_once __DIR__ . '/../../../../../vendor/autoload.php';
 
 use Core\Infra\Database\MySQL\MysqlPDO;
 
@@ -10,7 +10,8 @@ class CreateUserTable
 
     public function __construct()
     {
-        $database = new MysqlPDO();
+        $database = new MysqlPDO();     
+        var_dump('DATABASE');
         $this->pdo = $database->getConnection();
     }
 
@@ -21,9 +22,7 @@ class CreateUserTable
             id INT AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
-            email_verified_at TIMESTAMP NULL,
-            password VARCHAR(255) NULL,
-            remember_token VARCHAR(100) NULL,
+            password VARCHAR(255) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )

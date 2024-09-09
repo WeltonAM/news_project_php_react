@@ -1,8 +1,10 @@
 <?php
 
+require_once __DIR__ . '/../../init.php';
+
 return [
 
-    'default' => $_ENV['DB_CONNECTION'] ?? 'mysql',
+    'default' => $_ENV['DB_CONNECTION'],
 
     'connections' => [
 
@@ -16,13 +18,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => $_ENV['DATABASE_URL'] ?? null,
-            'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
-            'port' => $_ENV['DB_PORT'] ?? '3306',
-            'database' => $_ENV['DB_DATABASE'] ?? 'forge',
-            'username' => $_ENV['DB_USERNAME'] ?? 'forge',
-            'password' => $_ENV['DB_PASSWORD'] ?? '',
-            'unix_socket' => $_ENV['DB_SOCKET'] ?? '',
+            'host' => $_ENV['DB_HOST'],
+            'port' => $_ENV['DB_PORT'],
+            'database' => $_ENV['DB_DATABASE'],
+            'username' => $_ENV['DB_USERNAME'],
+            'password' => $_ENV['DB_PASSWORD'],
+            'unix_socket' => $_ENV['DB_SOCKET'],
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
@@ -90,7 +91,5 @@ return [
             'port' => $_ENV['REDIS_PORT'] ?? '6379',
             'database' => $_ENV['REDIS_CACHE_DB'] ?? '1',
         ],
-
     ],
-
 ];
