@@ -19,37 +19,25 @@ class RepositorioUsuarioMySQL implements RepositorioUsuario
 
     public function salvar(Usuario $usuario): Usuario
     {
-        $nome = $usuario->getNome()->getCompleto();
-        $email = $usuario->getEmail()->getValor();
-        $password = $usuario->getSenha() ? $usuario->getSenha()->getValor() : null;
+        
+        $u = $usuario->props();
 
-        if ($usuario->getId()->valor()) {
-            $sql = "
-                UPDATE users 
-                SET nome = :nome, email = :email, password = :password 
-                WHERE id = :id
-            ";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                'id' => $usuario->getId()->valor(),
-                'nome' => $nome,
-                'email' => $email,
-                'password' => $password,
-            ]);
-        } else {
-            $sql = "
-                INSERT INTO users (nome, email, password) 
-                VALUES (:nome, :email, :password)
-            ";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                'nome' => $nome,
-                'email' => $email,
-                'password' => $password,
-            ]);
+        $id = $u['id'];
+        $nome = $u['nome'];
+        $email = $u['email'];
+        $password = $u['senha'] ?? null;
 
-            $usuario->setId($this->pdo->lastInsertId());
-        }
+        $sql = "
+            INSERT INTO users (id, nome, email, password) 
+            VALUES (:id, :nome, :email, :password)
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+            'nome' => $nome,
+            'email' => $email,
+            'password' => $password,
+        ]);
 
         return $usuario;
     }

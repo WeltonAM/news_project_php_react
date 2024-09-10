@@ -22,8 +22,6 @@ class LoginUsuarioController
 
     public function login(Request $request, Response $response, array $args): Response
     {
-        // error_log(print_r($request->getParsedBody(), true));
-
         try {
             $body = $request->getParsedBody();
             $email = $body['email'];

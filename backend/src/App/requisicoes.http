@@ -6,3 +6,13 @@ Content-Type: application/json
     "email": "js@email.com",
     "senha": "!Senha123"
 }
+
+###
+POST http://localhost:8005/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Emilia da Silva",
+    "email": "em@email.com",
+    "senha": "!Senha1"
+}
