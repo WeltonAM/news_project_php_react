@@ -14,5 +14,6 @@
         "Redis": "scala",
         "Migrations": "ci",
         "Adapters": "controller",
+        "(interno)": "React-components",
     }
 }
