@@ -19,9 +19,11 @@ class CadastrarUsuarioController
     {
         try {
             $body = $request->getParsedBody();
-            $nome = $body['nome'];
-            $email = $body['email'];
-            $senha = $body['senha'];
+            
+            $nome = $body['nome'] ?? null;
+            $email = $body['email'] ?? null;
+            $senha = $body['senha'] ?? null;
+            
 
             $this->casoDeUso->executar(['nome' => $nome, 'email' => $email, 'senha' => $senha]);
 

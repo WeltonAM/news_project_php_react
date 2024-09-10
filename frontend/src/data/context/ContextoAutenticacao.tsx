@@ -36,12 +36,13 @@ export function ProvedorAutenticacao(props: any) {
 
     async function registrar(usuario: UsuarioDTO) {
         const resp = await httpPost("/cadastrar", usuario)
+        console.log('REGISTRO RESPOSTAS DO BACKEND', resp)
         if (resp.sucesso) await login(usuario)
     }
 
     async function login(usuario: UsuarioDTO) {
         const resp = await httpPost("/login", usuario)
-        console.log(resp)
+        console.log('LOGIN RESPOSTAS DO BACKEND', resp)
         criarSessao(resp.json)
     }
 

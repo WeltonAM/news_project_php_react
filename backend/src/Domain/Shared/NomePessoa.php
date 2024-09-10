@@ -11,13 +11,13 @@ class NomePessoa
     /**
      * NomePessoa constructor.
      *
-     * @param string $nome
+     * @param string|null $nome
      * @param string|null $atributo
      * @param string|null $objeto
      * 
      * @throws Exception
      */
-    public function __construct(string $nome, ?string $atributo = null, ?string $objeto = null)
+    public function __construct(?string $nome = null, ?string $atributo = null, ?string $objeto = null)
     {
         $this->validarNome($nome);
         $this->nome = $nome;
@@ -29,10 +29,11 @@ class NomePessoa
      * @param string $nome
      * @throws Exception
      */
-    private function validarNome(string $nome): void
+    private function validarNome(?string $nome): void
     {
         $validador = Validador::valor($nome, 'nome', 'NomePessoa')
             ->naoVazio('VAZIO')
+            ->naoNulo('VAZIO')
             ->tamanhoMaiorOuIgualQue(4, 'TAMANHO_PEQUENO')
             ->tamanhoMenorOuIgualQue(120, 'TAMANHO_GRANDE')
             ->regex("/^[a-zA-ZÀ-ÿ' ]+$/u", 'CARACTERES_INVALIDOS');

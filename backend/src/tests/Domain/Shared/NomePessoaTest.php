@@ -21,6 +21,19 @@ class NomePessoaTest extends TestCase
         new NomePessoa('');
     }    
 
+    public function testDeveLancarErroAoCriarNomeNulo()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(json_encode([
+            ['codigo' => 'VAZIO', 'valor' => null, 'atributo' => 'nome', 'objeto' => 'NomePessoa', 'extras' => []],
+            ['codigo' => 'TAMANHO_PEQUENO', 'valor' => null, 'atributo' => 'nome', 'objeto' => 'NomePessoa', 'extras' => ['min' => 4]],
+            ['codigo' => 'CARACTERES_INVALIDOS', 'valor' => null, 'atributo' => 'nome', 'objeto' => 'NomePessoa', 'extras' => []],
+            ['codigo' => 'SOBRENOME_INVALIDO', 'valor' => null, 'atributo' => 'nome', 'objeto' => 'NomePessoa', 'extras' => []],
+        ]));
+    
+        new NomePessoa(null);
+    }    
+
     public function testDeveLancarErroAoCriarNomeMenorQue3Caracteres()
     {
         $this->expectException(Exception::class);

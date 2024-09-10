@@ -32,10 +32,6 @@ class CadastrarUsuario implements CasoDeUso
      */
     public function executar($entrada, ?Usuario $usuario = null): void
     {
-        if (!is_array($entrada)) {
-            throw new \InvalidArgumentException('A entrada deve ser um array.');
-        }
-
         $nome = new NomePessoa($entrada['nome'], 'nome', 'NomePessoa');
         $email = new Email($entrada['email'], 'email', 'Email');
         $senha = new SenhaForte($entrada['senha'], 'senha', 'SenhaForte');
