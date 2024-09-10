@@ -15,6 +15,18 @@ class EmailTest extends TestCase
         $this->assertEquals($email, $objeto->getValor());
     }
 
+    public function testEmailVazio()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(json_encode([
+            ['codigo' => 'EMAIL_INVALIDO', 'valor' => '', 'atributo' => 'email', 'objeto' => 'EMAIL', 'extras' => []]
+        ]));
+        
+        $email = '';
+        $objeto = new Email($email);
+        $this->assertEquals($email, $objeto->getValor());
+    }
+
     public function testEmailInvalido()
     {
         $this->expectException(Exception::class);
