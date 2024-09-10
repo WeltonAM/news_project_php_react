@@ -23,8 +23,6 @@ class RepositorioUsuarioMySQL implements RepositorioUsuario
         $email = $usuario->getEmail()->getValor();
         $password = $usuario->getSenha() ? $usuario->getSenha()->getValor() : null;
 
-        var_dump($usuario);
-
         if ($usuario->getId()->valor()) {
             $sql = "
                 UPDATE users 

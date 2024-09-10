@@ -23,6 +23,16 @@ class Usuario extends Entidade
             : null;
     }
 
+    public function props(): array
+    {
+        return [
+            'id' => $this->id->valor(),
+            'nome' => $this->nome->getCompleto(),
+            'email' => $this->email->getValor(),
+            'senha' => $this->senha ? $this->senha->getValor() : null,
+        ];
+    }
+
     public function semSenha(): self
     {
         return $this->clone(['senha' => null]);

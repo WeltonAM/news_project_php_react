@@ -1,19 +1,27 @@
 <?php
 
-use Core\App\Adapters\User\UsuarioController;
+use Core\App\Adapters\User\LoginUsuarioController;
+use Core\App\External\Auth\ProvedorJWT;
+use Core\App\External\Auth\ProvedorBcrypt;
+use Core\Domain\User\Service\LoginUsuario;
+use Core\App\External\DataBase\RepositorioUsuarioMySQL;
 
-$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$requestMethod = $_SERVER['REQUEST_METHOD'];
+use Slim\Factory\AppFactory;
+use Slim\Middleware\BodyParsingMiddleware;
 
-if ($requestUri === '/users' && $requestMethod === 'GET') {
-    if (isset($_GET['email'])) {
-        $controller = new UsuarioController();
-        $controller->obterUsuarioPorEmail($_GET['email']);
-    } else {
-        http_response_code(400);
-        echo json_encode(['error' => 'Email não fornecido']);
-    }
-} else {
-    http_response_code(404);
-    echo json_encode(['error' => 'Endpoint não encontrado']);
-}
+require __DIR__ . '/../../init.php';
+
+$app = AppFactory::create();
+$app->addBodyParsingMiddleware(); 
+
+$provedorToken = new ProvedorJWT($_ENV['JWT_SECRET']);
+$provedorCriptografia = new ProvedorBcrypt();
+$repositorioUsuario = new RepositorioUsuarioMySQL();
+
+$loginUsuario = new LoginUsuario($repositorioUsuario, $provedorCriptografia);
+$loginUsuarioController = new LoginUsuarioController($loginUsuario, $provedorToken);
+
+// ----------------------------------------- ROTAS ABSTRATAS
+$app->post('/login', [$loginUsuarioController, 'login']);
+
+$app->run();

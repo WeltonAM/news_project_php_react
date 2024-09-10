@@ -27,7 +27,7 @@ class UserSeed
         $stmt->execute([
             'id' => $uuid,
             'nome' => 'João da Silva',
-            'email' => 'joao.silva@email.com',
+            'email' => 'js@email.com',
             'password' => password_hash('!Senha123', PASSWORD_BCRYPT), 
         ]);
 
