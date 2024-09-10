@@ -30,10 +30,6 @@ class LoginUsuario implements CasoDeUso
      */
     public function executar($entrada, ?Usuario $usuario = null): Usuario
     {
-        if (!is_array($entrada)) {
-            throw new \InvalidArgumentException('A entrada deve ser um array.');
-        }
-
         $email = new Email($entrada['email'], 'email');
         $usuario = $this->repositorio->obterPorEmail($email->getValor());
         
