@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../../../../../init.php';
 
 use Core\Infra\Database\MySQL\MysqlPDO;
+use Ramsey\Uuid\Uuid;
 
 class UserSeed
 {
@@ -16,12 +17,15 @@ class UserSeed
 
     public function run()
     {
+        $uuid = Uuid::uuid4()->toString();
+
         $sql = "
-            INSERT INTO users (nome, email, password) VALUES (:nome, :email, :password)
+            INSERT INTO users (id, nome, email, password) VALUES (:id, :nome, :email, :password)
         ";
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
+            'id' => $uuid,
             'nome' => 'João da Silva',
             'email' => 'joao.silva@email.com',
             'password' => password_hash('!Senha123', PASSWORD_BCRYPT), 

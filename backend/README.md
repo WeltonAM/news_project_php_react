@@ -1,7 +1,7 @@
 ```
 ├── src/
 │ ├── App/
-│ │ ├── Controllers/
+│ │ ├── Adapters/
 │ │ │ ├── User/
 │ │ │ │ ├── LoginController.php
 │ │ │ │ ├── UsuarioMiddleware.php
@@ -14,9 +14,6 @@
 │ │ │   └── NoticiaController.php
 │ │ │
 │ │ ├── External/
-│ │ │ ├── API/
-│ │ │ │ └── config.php
-│ │ │ │
 │ │ │ ├── DataBase/
 │ │ │ │ └── RepositorioUsuarioMySQL.php
 │ │ │ │ └── RepositorioNoticiaMySQL.php

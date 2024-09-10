@@ -1,22 +1,19 @@
 <?php
 
-namespace App;
+use Core\App\Adapters\User\UsuarioController;
 
-use Infra\Database\Database;
+$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$requestMethod = $_SERVER['REQUEST_METHOD'];
 
-class UserRepository
-{
-    private $pdo;
-
-    public function __construct()
-    {
-        $this->pdo = (new Database())->getConnection();
+if ($requestUri === '/users' && $requestMethod === 'GET') {
+    if (isset($_GET['email'])) {
+        $controller = new UsuarioController();
+        $controller->obterUsuarioPorEmail($_GET['email']);
+    } else {
+        http_response_code(400);
+        echo json_encode(['error' => 'Email não fornecido']);
     }
-
-    public function findUserById($id)
-    {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
-        $stmt->execute(['id' => $id]);
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }
+} else {
+    http_response_code(404);
+    echo json_encode(['error' => 'Endpoint não encontrado']);
 }

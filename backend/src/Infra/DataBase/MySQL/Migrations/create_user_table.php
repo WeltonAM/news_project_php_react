@@ -11,7 +11,6 @@ class CreateUserTable
     public function __construct()
     {
         $database = new MysqlPDO();     
-        var_dump('DATABASE');
         $this->pdo = $database->getConnection();
     }
 
@@ -19,7 +18,7 @@ class CreateUserTable
     {
         $sql = "
         CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
+            id CHAR(36) PRIMARY KEY,
             nome VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
             password VARCHAR(255) NOT NULL,
@@ -51,4 +50,3 @@ class CreateUserTable
 
 $migration = new CreateUserTable();
 $migration->up();  
-// Use $migration->down(); para reverter a migração

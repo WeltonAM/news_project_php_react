@@ -13,5 +13,6 @@
         "MySQL": "database",
         "Redis": "scala",
         "Migrations": "ci",
+        "Adapters": "controller",
     }
 }
