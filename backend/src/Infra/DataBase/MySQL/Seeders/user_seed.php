@@ -3,7 +3,6 @@
 require_once __DIR__ . '/../../../../../init.php';
 
 use Core\Infra\Database\MySQL\MysqlPDO;
-use Illuminate\Support\Facades\Hash;
 
 class UserSeed
 {
@@ -25,7 +24,7 @@ class UserSeed
         $stmt->execute([
             'nome' => 'João da Silva',
             'email' => 'joao.silva@email.com',
-            'password' => Hash::make('!Senha123'),
+            'password' => password_hash('!Senha123', PASSWORD_BCRYPT), 
         ]);
 
         echo "Usuário criado com sucesso.\n";
