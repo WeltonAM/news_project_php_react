@@ -24,8 +24,8 @@ class LoginUsuarioController
     {
         try {
             $body = $request->getParsedBody();
-            $email = $body['email'];
-            $senha = $body['senha'];
+            $email = $body['email'] ?? null;
+            $senha = $body['senha'] ?? null;
 
             $usuario = $this->casoDeUso->executar(['email' => $email, 'senha' => $senha]);
 

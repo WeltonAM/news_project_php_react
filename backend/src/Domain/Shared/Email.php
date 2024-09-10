@@ -11,13 +11,13 @@ class Email
     /**
      * Email constructor.
      *
-     * @param string $email
+     * @param string|null $email
      * @param string|null $atributo
      * @param string|null $objeto
      * 
      * @throws Exception
      */
-    public function __construct(string $email, ?string $atributo = null, ?string $objeto = null)
+    public function __construct(?string $email = null, ?string $atributo = null, ?string $objeto = null)
     {
         $this->validarEmail($email);
         $this->email = $email;
@@ -29,11 +29,13 @@ class Email
      * @param string $email
      * @throws Exception
      */
-    private function validarEmail(string $email): void
+    private function validarEmail(?string $email): void
     {
         $validador = Validador::valor($email, 'email', 'EMAIL')
-            ->email()
-            ->lancarSeErro();
+        ->naoNulo('EMAIL_INVALIDO')
+        ->naoVazio('EMAIL_INVALIDO')
+        ->email('EMAIL_INVALIDO')
+        ->lancarSeErro();
     }
 
     /**
