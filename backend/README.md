@@ -133,3 +133,12 @@
 ├──── .gitignore
 ├──── .vendor/
 ```
+
+## How to run
+
+```bash
+$ composer install
+$ composer migrate
+$ composer db:seed
+$ composer serve
+```
