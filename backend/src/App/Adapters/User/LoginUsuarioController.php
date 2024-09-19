@@ -24,6 +24,9 @@ class LoginUsuarioController
     {
         try {
             $body = $request->getParsedBody();
+
+            // error_log(print_r($body, true));
+
             $email = $body['email'] ?? null;
             $senha = $body['senha'] ?? null;
 
@@ -39,6 +42,7 @@ class LoginUsuarioController
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
 
         } catch (\Exception $e) {
+            // error_log($e->getMessage());
             $response->getBody()->write(json_encode(['erros' => $this->tratarErros($e)]));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(400);
         }
@@ -46,6 +50,6 @@ class LoginUsuarioController
 
     private function tratarErros(\Exception $e): array
     {
-        return ['mensagem' => $e->getMessage()];
+        return [$e->getMessage()];
     }
 }

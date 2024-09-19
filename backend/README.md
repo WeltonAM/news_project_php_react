@@ -136,6 +136,8 @@
 
 ## How to run
 
+Copy the `.env.sample` file to `.env` and fill the values.
+
 ```bash
 $ composer install
 $ composer migrate

@@ -12,6 +12,8 @@ export default function useApi() {
     function (err: any) {
       if (!err) return;
 
+      console.log(err);
+
       if (Array.isArray(err)) {
         return err.map(adicionarErro);
       } else if (typeof err === "string") {
@@ -62,6 +64,7 @@ export default function useApi() {
       });
 
       const json = await res.json();
+      console.log(json);
 
       renderizarErrosSeExistir(json.erros);
 

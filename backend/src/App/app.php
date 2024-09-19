@@ -38,9 +38,9 @@ $cadastrarUsuarioController = new CadastrarUsuarioController($cadastrarUsuario);
 $loginUsuario = new LoginUsuario($repositorioUsuario, $provedorCriptografia);
 $loginUsuarioController = new LoginUsuarioController($loginUsuario, $provedorToken);
 
-// ----------------------------------------- ROTAS ABSTRATAS
+// ----------------------------------------- ROTAS ABERTAS
 $app->get('/', function ($request, $response) {
-    $body = json_encode(['mensagem' => 'Bem vindo ao nosso API']);
+    $body = json_encode(['mensagem' => 'Bem vindo à nossa API']);
     $stream = Utils::streamFor($body);
     return $response->withStatus(200)
         ->withHeader('Content-Type', 'application/json')
