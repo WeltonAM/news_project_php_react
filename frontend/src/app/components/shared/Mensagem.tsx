@@ -1,6 +1,6 @@
 import { Mensagem } from "@/data/context/MensagemContexto";
 import useMensagens from "@/data/hooks/useMessagem";
-import { IconX } from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react"
 
 interface CodigoParaMensagem {
     [key: string]: string;
@@ -11,31 +11,33 @@ const codigoParaMensagem: CodigoParaMensagem = {
     SOBRENOME_INVALIDO: "Adicione um sobrenome válido",
     SENHA_FRACA: "Senha inválida",
     DESCRICAO_VAZIA: "Descrição não pode ser vazia",
-    EMAIL_INVALIDO: "Verifique suas credenciais",
     ERRO_DESCONHECIDO: "Atualize os dados e tente novamente",
     STATUS_INVALIDO: "Status inválido",
+    EMAIL_INVALIDO: "Verifique suas credenciais",
+    SENHA_INCORRETA: "Verifique suas credenciais",
+    USUARIO_NAO_EXISTE: "Verifique suas credenciais",
 };
 
 export default function Mensagens() {
     const { mensagens, excluir } = useMensagens();
 
+    function verificaCodigoEmTexto(texto: string): string {
+        const json = JSON.parse(texto);
+
+        if (Array.isArray(json)) {
+            return json[0].codigo;
+        } else {
+            return json.codigo;
+        }
+    }
+
     function renderizarMensagem(msg: Mensagem) {
-        let texto = "Erro desconhecido";
+        let texto = '';
 
-
-        try {
-            const parsedTexto = JSON.parse(msg.texto);
-
-            console.log(parsedTexto);
-            if (Array.isArray(parsedTexto) && parsedTexto.length > 0 && parsedTexto[0].codigo) {
-                const codigo = parsedTexto[0].codigo;
-
-                if (codigoParaMensagem[codigo]) {
-                    texto = codigoParaMensagem[codigo];
-                }
-            }
-        } catch (e) {
-            console.error("Erro ao parsear msg.texto:", e);
+        if (msg.texto.includes('codigo')) {
+            texto = codigoParaMensagem[verificaCodigoEmTexto(msg.texto)];
+        } else {
+            texto = msg.texto;
         }
 
         return (
@@ -51,12 +53,12 @@ export default function Mensagens() {
                     </div>
                 </button>
             </div>
-        );
+        )
     }
 
     return (
         <div className="flex flex-col gap-2">
             {mensagens && mensagens.map(renderizarMensagem)}
         </div>
-    );
+    )
 }

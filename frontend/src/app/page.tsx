@@ -4,6 +4,7 @@ import useFormAutenticacao from "@/data/hooks/useFormAutenticacao";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Mensagens from "./components/shared/Mensagem";
+import useMensagens from "@/data/hooks/useMessagem";
 
 interface TextInputProps {
   label: string;
@@ -26,6 +27,7 @@ export default function Autenticacao() {
   const router = useRouter();
   const { usuario, modo, alterarUsuario, alternarModo } = useFormAutenticacao();
   const { usuarioAutenticado, registrar, login } = useAutenticacao();
+  const { adicionarErro } = useMensagens();
 
   function alterarAtributo(atributo: string) {
     return (e: any) => {
@@ -34,6 +36,29 @@ export default function Autenticacao() {
         [atributo]: e?.target?.value ?? e,
       });
     };
+  }
+
+  function validarCamposObrigatorios() {
+    if (modo === "registro" && !usuario.nome) {
+      adicionarErro("O campo de nome é obrigatório.");
+      return false;
+    }
+
+    if (!usuario.email) {
+      adicionarErro("O campo de email é obrigatório.");
+      return false;
+    }
+    if (!usuario.senha) {
+      adicionarErro("O campo de senha é obrigatório.");
+      return false;
+    }
+    return true;
+  }
+
+  function handleSubmit() {
+    if (validarCamposObrigatorios()) {
+      modo === "registro" ? registrar(usuario) : login(usuario);
+    }
   }
 
   useEffect(() => {
@@ -81,9 +106,7 @@ export default function Autenticacao() {
           />
           <div className="flex-1 flex flex-col gap-3 mt-5">
             <Button
-              onClick={() =>
-                modo === "registro" ? registrar(usuario) : login(usuario)
-              }
+              onClick={handleSubmit}
             >
               {modo === "registro" ? "Registrar" : "Login"}
             </Button>
