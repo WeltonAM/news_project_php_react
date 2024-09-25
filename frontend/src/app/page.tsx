@@ -3,8 +3,8 @@ import useAutenticacao from "@/data/hooks/useAutenticacao";
 import useFormAutenticacao from "@/data/hooks/useFormAutenticacao";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Mensagens from "./components/shared/Mensagem";
 import useMensagens from "@/data/hooks/useMessagem";
+import Mensagens from "@/components/shared/Mensagem";
 
 interface TextInputProps {
   label: string;

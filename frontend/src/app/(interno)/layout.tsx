@@ -1,4 +1,4 @@
-import ForcarUsuarioAutenticado from "../components/auth/ForcarUsuarioAutenticacao"
+import ForcarUsuarioAutenticado from "@/components/auth/ForcarUsuarioAutenticacao"
 
 export interface PaginaProps {
     children: any
